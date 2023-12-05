@@ -35,12 +35,29 @@ Array.prototype.myMap = function(callback) {
 
 
 function callback(el) {
-    console.log(el + 1);
+    (el + 1);
 }
 
-[1,2,3].myMap(callback)
 
 
-// Array.prototype.myReduce(callback[, initialValue]) = {
-    
-// }
+Array.prototype.myReduce = function(callback, initialValue){
+    let i = 0;
+
+    if (initialValue == false){
+        i = 1;
+    }
+
+    sum = this[i]
+    let arr = this.slice(i, this.length);
+    this.myEach(function(el){
+        sum += callback(el)
+    });
+
+    return sum
+}
+
+
+[1, 2, 3].myReduce(callback)
+
+
+// arr.myEach(ele => console.log(ele))
